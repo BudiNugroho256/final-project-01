@@ -62,7 +62,7 @@
                         <a class="nav-link active" href="/forum">Forum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tentang-kami">Tentang Kami</a>
+                        <a class="nav-link" href="/about-us">Tentang Kami</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

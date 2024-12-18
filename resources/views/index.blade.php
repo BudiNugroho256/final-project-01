@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forum Harga Komoditas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #map {
@@ -85,7 +85,7 @@
             color: #003366; /* Biru gelap */
             font-family: Arial, sans-serif;
         }
-        .forum-header {
+        .index-header {
             background-color: #007bff; /* Biru utama */
             color: white;
             padding: 20px;
@@ -144,14 +144,14 @@
                                 @auth
                                     <a
                                         href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                        class="btn btn-blue"
                                     >
                                         Dashboard
                                     </a>
                                 @else
                                     <a
                                         href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                        class="btn btn-blue"
                                     >
                                         Log in
                                     </a>
@@ -159,7 +159,7 @@
                                     @if (Route::has('register'))
                                         <a
                                             href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                            class="btn btn-blue"
                                         >
                                             Register
                                         </a>
@@ -170,6 +170,11 @@
         </div>
     </div>
 </nav>
+
+<header class="index-header">
+        <h1>CekPangan</h1>
+        <p>Amanah Pangan untuk Masa Depan.</p>
+</header>
 
 <div id="map">
     {!! $svg !!} <!-- Inject SVG directly here -->
