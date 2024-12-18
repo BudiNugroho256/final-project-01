@@ -80,10 +80,48 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
+        body {
+            background-color: #f0f8ff; /* Biru muda */
+            color: #003366; /* Biru gelap */
+            font-family: Arial, sans-serif;
+        }
+        .forum-header {
+            background-color: #007bff; /* Biru utama */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar a {
+            color: white;
+        }
+        .article-card {
+            transition: transform 0.2s;
+            border: 1px solid #d4e9f9;
+        }
+        .article-card:hover {
+            transform: scale(1.02);
+        }
+        .btn-blue {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-blue:hover {
+            background-color: #0056b3;
+        }
+        .category-list a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .category-list a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">CekPangan</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,13 +130,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="#">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/forum">Forum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about-us">About Us</a>
+                    <a class="nav-link" href="/about-us">Tentang Kami</a>
                 </li>
             </ul>
                 @if (Route::has('login'))
@@ -106,14 +144,14 @@
                                 @auth
                                     <a
                                         href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                     >
                                         Dashboard
                                     </a>
                                 @else
                                     <a
                                         href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                     >
                                         Log in
                                     </a>
@@ -121,7 +159,7 @@
                                     @if (Route::has('register'))
                                         <a
                                             href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                         >
                                             Register
                                         </a>
