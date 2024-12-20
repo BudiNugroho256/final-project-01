@@ -246,17 +246,9 @@
     });
 </script>
 
-<div class="card">
-  <div class="card-header">
-    Quote
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>A well-known quote, contained in a blockquote element.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
-  </div>
-</div>
+<footer class="text-center mt-4 py-4" style="background-color: #007bff; color: white;">
+        <p>&copy; 2024 HargaKomoditas. Semua Hak Dilindungi.</p>
+</footer>
 
 </body>
 </html>

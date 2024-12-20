@@ -152,5 +152,9 @@
     </p>
 </footer>
 
+    <footer class="text-center mt-4 py-4" style="background-color: #007bff; color: white;">
+        <p>&copy; 2024 HargaKomoditas. Semua Hak Dilindungi.</p>
+    </footer>
+
 </body>
 </html>
