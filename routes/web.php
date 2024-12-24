@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/harga-beras-mengalami-kenaikan', function () {
+    return view('articles.harga-beras-mengalami-kenaikan');
+});
 
 require __DIR__.'/auth.php';

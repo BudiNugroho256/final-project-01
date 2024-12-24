@@ -39,7 +39,8 @@
             pointer-events: none;
         }
 
-        #articles {            padding: 20px;
+        #articles {
+            padding: 20px;
             background-color: #f9f9f9;
         }
 
@@ -184,7 +185,7 @@
 <div id="articles" class="container">
     <h2>Berita Terbaru: Harga Pangan di Indonesia</h2>
     <div class="article">
-        <h3 class="article-title">Harga Beras Mengalami Kenaikan</h3>
+        <a href="/harga-beras-mengalami-kenaikan" class="article-title">Harga Beras Mengalami Kenaikan</a>
         <div class="article-meta">Oleh Lina Sari pada 17 November 2024</div>
         <div class="article-content">
             Harga beras di beberapa daerah di Indonesia dilaporkan mengalami kenaikan hingga 10% akibat musim kemarau panjang. Para petani juga menghadapi tantangan distribusi yang menyebabkan kelangkaan di pasaran.
@@ -196,7 +197,7 @@
         </div>
     </div>
     <div class="article">
-        <h3 class="article-title">Harga Cabai Stabil, Pasokan Cukup</h3>
+        <a href="/articles/harga-cabai-stabil-pasokan-cukup" class="article-title">Harga Cabai Stabil, Pasokan Cukup</a>
         <div class="article-meta">Oleh Andi Rahman pada 15 November 2024</div>
         <div class="article-content">
             Pasokan cabai di pasar tradisional tetap stabil dalam dua bulan terakhir, dengan harga rata-rata Rp30.000 per kilogram. Para pedagang memuji perbaikan distribusi oleh pemerintah daerah.
@@ -208,7 +209,7 @@
         </div>
     </div>
     <div class="article">
-        <h3 class="article-title">Pemerintah Subsidi Minyak Goreng</h3>
+        <a href="/articles/pemerintah-subsidi-minyak-goreng" class="article-title">Pemerintah Subsidi Minyak Goreng</a>
         <div class="article-meta">Oleh Dewi Anggraini pada 10 November 2024</div>
         <div class="article-content">
             Untuk mengurangi beban masyarakat, pemerintah telah meluncurkan program subsidi minyak goreng. Harga minyak goreng kini berkisar di Rp14.000 per liter, jauh lebih rendah dibandingkan sebelumnya.
