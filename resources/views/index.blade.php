@@ -197,7 +197,7 @@
         </div>
     </div>
     <div class="article">
-        <a href="/articles/harga-cabai-stabil-pasokan-cukup" class="article-title">Harga Cabai Stabil, Pasokan Cukup</a>
+        <a href="/harga-cabai-stabil-pasokan-cukup" class="article-title">Harga Cabai Stabil, Pasokan Cukup</a>
         <div class="article-meta">Oleh Andi Rahman pada 15 November 2024</div>
         <div class="article-content">
             Pasokan cabai di pasar tradisional tetap stabil dalam dua bulan terakhir, dengan harga rata-rata Rp30.000 per kilogram. Para pedagang memuji perbaikan distribusi oleh pemerintah daerah.
@@ -209,7 +209,7 @@
         </div>
     </div>
     <div class="article">
-        <a href="/articles/pemerintah-subsidi-minyak-goreng" class="article-title">Pemerintah Subsidi Minyak Goreng</a>
+        <a href="/pemerintah-subsidi-minyak-goreng" class="article-title">Pemerintah Subsidi Minyak Goreng</a>
         <div class="article-meta">Oleh Dewi Anggraini pada 10 November 2024</div>
         <div class="article-content">
             Untuk mengurangi beban masyarakat, pemerintah telah meluncurkan program subsidi minyak goreng. Harga minyak goreng kini berkisar di Rp14.000 per liter, jauh lebih rendah dibandingkan sebelumnya.

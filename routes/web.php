@@ -35,4 +35,12 @@ Route::get('/harga-beras-mengalami-kenaikan', function () {
     return view('articles.harga-beras-mengalami-kenaikan');
 });
 
+Route::get('/harga-cabai-stabil-pasokan-cukup', function () {
+    return view('articles.harga-cabai-stabil-pasokan-cukup');
+});
+
+Route::get('/pemerintah-subsidi-minyak-goreng', function () {
+    return view('articles.pemerintah-subsidi-minyak-goreng');
+});
+
 require __DIR__.'/auth.php';
