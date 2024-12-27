@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KomoditasController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ProvinsiController;
 
 Route::get('/forum', [ForumController::class, 'index']);
 
@@ -42,5 +44,9 @@ Route::get('/harga-cabai-stabil-pasokan-cukup', function () {
 Route::get('/pemerintah-subsidi-minyak-goreng', function () {
     return view('articles.pemerintah-subsidi-minyak-goreng');
 });
+
+Route::get('/get-data-komoditas/{id}', [KomoditasController::class, 'getKomoditasData']);
+
+
 
 require __DIR__.'/auth.php';

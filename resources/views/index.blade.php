@@ -119,6 +119,14 @@
         .category-list a:hover {
             text-decoration: underline;
         }
+        .table-container {
+        margin: 20px; /* Add some space around the table */
+        padding: 10px; /* Optional padding inside the container */
+        }
+        table {
+            width: 100%; /* Ensure the table takes up available space */
+            margin: 0 auto; /* Center the table */
+        }
     </style>
 </head>
 <body>
@@ -182,6 +190,26 @@
     <div class="tooltip" id="tooltip"></div>
 </div>
 
+
+<div class="table-container">
+    <table class="table table-bordered table-striped">
+        <h2>Harga Komoditas</h2>
+        <thead class="table-primary">
+            <tr>
+                <th>Provinsi</th>
+                <th>Komoditas</th>
+                <th>Harga</th>
+                <th>Update Terakhir</th>
+            </tr>
+        </thead>
+        <tbody id="komoditas-tbody">
+            <tr>
+                <td colspan="4" class="text-center">Pilih provinsi pada peta untuk melihat data komoditas.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <div id="articles" class="container">
     <h2>Berita Terbaru: Harga Pangan di Indonesia</h2>
     <div class="article">
@@ -224,28 +252,83 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    // Seleksi elemen-elemen penting
     const regions = document.querySelectorAll('.region');
     const tooltip = document.getElementById('tooltip');
+    const komoditasTbody = document.getElementById('komoditas-tbody'); // Tempat menampilkan data komoditas
 
+    // Fungsi untuk menampilkan tooltip
+    const showTooltip = (event, text) => {
+        tooltip.style.display = 'block';
+        tooltip.innerHTML = text;
+        tooltip.style.left = event.pageX + 10 + 'px';
+        tooltip.style.top = event.pageY + 10 + 'px';
+    };
+
+    // Fungsi untuk menyembunyikan tooltip
+    const hideTooltip = () => {
+        tooltip.style.display = 'none';
+    };
+
+    // Fungsi untuk memperbarui data komoditas
+    const updateKomoditasData = (regionName, komoditas) => {
+        komoditasTbody.innerHTML = komoditas.length
+            ? komoditas.map(item => `
+                <tr>
+                    <td>${regionName}</td>
+                    <td>${item.name}</td>
+                    <td>Rp ${item.harga}</td>
+                    <td>${item.update}</td>
+                </tr>
+            `).join('')
+            : `<tr><td colspan="3" class="text-center">Data tidak ditemukan untuk ${regionName}.</td></tr>`;
+    };
+
+    // Tambahkan event listener untuk setiap region
     regions.forEach(region => {
+        // Event hover untuk menampilkan tooltip
         region.addEventListener('mouseover', (event) => {
-            const regionName = event.target.querySelector('xlink:title') ? event.target.querySelector('xlink:title').innerHTML : 'Region Info';
-            tooltip.style.display = 'block';
-            tooltip.innerHTML = regionName;
-            tooltip.style.left = event.pageX + 10 + 'px';
-            tooltip.style.top = event.pageY + 10 + 'px';
+            const regionName = event.target.querySelector('title')?.textContent || 'Region Info';
+            showTooltip(event, regionName);
         });
 
+        // Update posisi tooltip saat mouse bergerak
         region.addEventListener('mousemove', (event) => {
             tooltip.style.left = event.pageX + 10 + 'px';
             tooltip.style.top = event.pageY + 10 + 'px';
         });
 
-        region.addEventListener('mouseout', () => {
-            tooltip.style.display = 'none';
+        // Sembunyikan tooltip saat mouse keluar
+        region.addEventListener('mouseout', hideTooltip);
+
+        // Event klik untuk menampilkan data komoditas
+        region.addEventListener('click', (event) => {
+            const regionId = event.target.id; // ID provinsi yang diklik
+            const regionName = event.target.querySelector('title')?.textContent || 'Provinsi';
+
+            // Tampilkan placeholder sementara
+            komoditasTbody.innerHTML = `<tr><td colspan="3" class="text-center">Memuat data untuk ${regionName}...</td></tr>`;
+
+            // Kirim permintaan data komoditas
+            fetch(`/get-data-komoditas/${regionId}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    const komoditas = data?.komoditas || [];
+                    updateKomoditasData(regionName, komoditas);
+                })
+                .catch(error => {
+                    console.error('Terjadi kesalahan:', error);
+                    komoditasTbody.innerHTML = `
+                        <tr><td colspan="3" class="text-center">Terjadi kesalahan saat memuat data. Silakan coba lagi.</td></tr>
+                    `;
+                });
         });
     });
 </script>
+
 
 <footer class="text-center mt-4 py-4" style="background-color: #007bff; color: white;">
         <p>&copy; 2024 HargaKomoditas. Semua Hak Dilindungi.</p>
