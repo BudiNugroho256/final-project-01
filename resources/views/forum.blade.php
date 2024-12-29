@@ -65,10 +65,6 @@
                         <a class="nav-link" href="/about-us">Tentang Kami</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Cari Diskusi" aria-label="Search">
-                    <button class="btn btn-blue" type="submit">Cari</button>
-                </form>
             </div>
         </div>
     </nav>
@@ -85,24 +81,17 @@
                 <h3>Diskusi Terbaru</h3>
                 <div class="row">
                     <!-- Kartu Diskusi -->
+                    @foreach ($discussions as $discussion)
                     <div class="col-md-6 mb-4">
                         <div class="card article-card">
                             <div class="card-body">
-                                <h5 class="card-title">Harga Padi Terkini</h5>
-                                <p class="card-text">Bagaimana harga padi di daerah Anda saat ini?</p>
-                                <a href="/forum/harga-padi" class="btn btn-blue">Ikuti Diskusi</a>
+                                <h5 class="card-title">{{ $discussion->title }}</h5>
+                                <p class="card-text">{{ $discussion->description }}</p>
+                                <a href="{{ route('forum.show', $discussion->id) }}" class="btn btn-blue">Ikuti Diskusi</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card article-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Panen Jagung di Jawa</h5>
-                                <p class="card-text">Diskusi tentang ketersediaan jagung di musim panen ini.</p>
-                                <a href="/forum/panen-jagung" class="btn btn-blue">Ikuti Diskusi</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -110,17 +99,16 @@
             <div class="col-md-4">
                 <h4>Kategori Diskusi</h4>
                 <ul class="category-list">
-                    <li><a href="/forum/kategori/padi">Harga Padi</a></li>
-                    <li><a href="/forum/kategori/jagung">Panen Jagung</a></li>
-                    <li><a href="/forum/kategori/sayur">Komoditas Sayur</a></li>
-                    <li><a href="/forum/kategori/buah">Komoditas Buah</a></li>
+                    @foreach ($categories as $category)
+                    <li><a href="{{ route('forum.category', $category->id) }}">{{ $category->name }}</a></li>
+                    @endforeach
                 </ul>
 
                 <h4 class="mt-4">Diskusi Populer</h4>
                 <ul class="list-group">
-                    <li class="list-group-item"><a href="/forum/populer/1">Tren Harga Cabe Tahun Ini</a></li>
-                    <li class="list-group-item"><a href="/forum/populer/2">Krisis Harga Bawang Merah</a></li>
-                    <li class="list-group-item"><a href="/forum/populer/3">Strategi Menghadapi Tengkulak</a></li>
+                    @foreach ($popularDiscussions as $popular)
+                    <li class="list-group-item"><a href="{{ route('forum.show', $popular->id) }}">{{ $popular->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

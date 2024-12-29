@@ -7,7 +7,7 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ProvinsiController;
 
-Route::get('/forum', [ForumController::class, 'index']);
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -15,9 +15,11 @@ Route::get('/forum', [ForumController::class, 'index']);
 
 Route::get('/', [MapController::class, 'index']);
 
-Route::get('/forum', function () {
-    return view('forum');
-});
+Route::get('/forum', [ForumController::class, 'index'])->name('forum.index');
+
+Route::get('/forum/{id}', [ForumController::class, 'show'])->name('forum.show');
+
+Route::get('/forum/category/{id}', [ForumController::class, 'category'])->name('forum.category');
 
 Route::get('/about-us', function () {
     return view('about-us');
